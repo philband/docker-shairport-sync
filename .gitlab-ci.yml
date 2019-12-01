@@ -6,8 +6,10 @@ stages:
 .docker: &dind
   stage: build
   services:
-  - name: subfuzion/dind
-    command: ["--mtu=1276"]
+  - name: docker:dind
+    command: 
+    - --experimental
+    - --mtu=1276
   tags:
   - dind
   script:
