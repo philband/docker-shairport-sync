@@ -7,7 +7,7 @@ stages:
   stage: build
   services:
   - name: docker:dind
-    command: ["--mtu=1276 --experimental"]
+    command: ["--mtu=1276"]
   tags:
   - dind
   script:
@@ -33,3 +33,4 @@ build_edge:
     DOCKER_DRIVER: overlay2
     DOCKER_HOST: tcp://localhost:2375
     DOCKER_TLS_CERTDIR: ""
+    DOCKER_CLI_EXPERIMENTAL: "enabled"
