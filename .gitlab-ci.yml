@@ -16,10 +16,7 @@ stages:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - >
       docker build 
-      --platform amd64
-      --platform arm64
-      --platform armhf
-      --platform armel
+      --platform linux/arm/v6
       -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
       -t $CI_REGISTRY_IMAGE:latest
       -f Dockerfile .
